@@ -1,0 +1,19 @@
+name: Request a New Playbook
+description: Propose a new platform or service that needs an incident response playbook.
+title: "[Playbook Request]: <Platform Name>"
+labels: ["enhancement"]
+body:
+  - type: input
+    id: platform_name
+    attributes:
+      label: Platform / Service Name
+      placeholder: "e.g., Discord, TikTok, Coinbase"
+    validations:
+      required: true
+  - type: textarea
+    id: blast_radius
+    attributes:
+      label: Why is this critical? (Blast Radius)
+      description: Describe the financial, reputational, or technical damage an attacker can do if they take over this account.
+    validations:
+      required: true

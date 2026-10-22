@@ -1,0 +1,91 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/project-virgil/core/main/templates/playbook_schema.json",
+  "title": "Project Virgil Playbook Frontmatter Schema",
+  "description": "Validation schema for YAML frontmatter in Project Virgil incident response playbooks.",
+  "type": "object",
+  "required": [
+    "id",
+    "title",
+    "platform",
+    "version",
+    "last_verified",
+    "severity_level",
+    "target_audience",
+    "indicators",
+    "prerequisites"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for the playbook following standard naming conventions.",
+      "pattern": "^IRP-[A-Z0-9]{2,4}-[0-9]{3}$",
+      "examples": ["IRP-GOOG-001", "IRP-META-001", "IRP-EP-WIN-001"]
+    },
+    "title": {
+      "type": "string",
+      "description": "The human-readable title of the incident playbook.",
+      "minLength": 5,
+      "maxLength": 100
+    },
+    "platform": {
+      "type": "string",
+      "description": "Primary platform, service, operating system, or ecosystem covered.",
+      "examples": ["Google", "Meta", "Apple", "Microsoft", "Windows", "Telecommunications (General)"]
+    },
+    "version": {
+      "type": "string",
+      "description": "Semantic versioning string for the playbook document.",
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+    },
+    "last_verified": {
+      "type": "string",
+      "description": "ISO-8601 date string indicating when recovery steps and direct URLs were last tested.",
+      "format": "date"
+    },
+    "severity_level": {
+      "type": "string",
+      "description": "Threat blast radius and impact classification.",
+      "enum": ["Critical", "High", "Medium", "Low"]
+    },
+    "target_audience": {
+      "type": "string",
+      "description": "Intended operator level.",
+      "default": "Operator & Tech-Savvy Helper"
+    },
+    "endpoints": {
+      "type": "object",
+      "description": "Direct URLs to administrative and recovery settings, bypassing brittle UI menus.",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "indicators": {
+      "type": "array",
+      "description": "Observed symptoms indicating active compromise or account takeover.",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      }
+    },
+    "prerequisites": {
+      "type": "object",
+      "required": [
+        "clean_environment_required",
+        "prerequisite_warning"
+      ],
+      "properties": {
+        "clean_environment_required": {
+          "type": "boolean",
+          "description": "Whether an out-of-band/uninfected device is strictly required to execute recovery."
+        },
+        "prerequisite_warning": {
+          "type": "string",
+          "description": "Contextual warning detailing why certain environments (e.g. infostealer-infected hosts) are dangerous."
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": true
+}

@@ -1,0 +1,36 @@
+name: Report a Broken Endpoint or UI Change
+description: A direct URL in a playbook is returning a 404, or the platform changed its security menu.
+title: "[UI Update]: <Platform> - <What changed>"
+labels: ["broken link", "triage"]
+body:
+  - type: dropdown
+    id: platform
+    attributes:
+      label: Platform
+      description: Which platform playbook is affected?
+      options:
+        - Google
+        - Meta (Facebook/Instagram)
+        - Apple
+        - Microsoft
+        - Telecommunications (SIM)
+        - Financial (PayPal, Amazon, etc.)
+        - Other
+    validations:
+      required: true
+  - type: input
+    id: broken_url
+    attributes:
+      label: Broken Endpoint URL
+      description: Paste the exact URL from our playbook that no longer works.
+      placeholder: "e.g., https://myaccount.google.com/connections"
+    validations:
+      required: true
+  - type: textarea
+    id: new_behavior
+    attributes:
+      label: What is the new behavior?
+      description: Does it 404? Does it redirect? Where has the setting moved to?
+      placeholder: "The connections page now redirects to the main dashboard. The new location for OAuth apps is..."
+    validations:
+      required: true

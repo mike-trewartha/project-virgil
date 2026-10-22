@@ -1,0 +1,26 @@
+name: Report a New Attacker Tactic
+description: You observed an adversary using a new method to maintain access to a compromised account.
+title: "[Tactic Update]: <Platform> - <Brief description>"
+labels: ["new tactic", "eradication"]
+body:
+  - type: dropdown
+    id: platform
+    attributes:
+      label: Affected Platform
+      options:
+        - Google
+        - Meta (Facebook/Instagram)
+        - Apple
+        - Microsoft
+        - Telecommunications (SIM)
+        - Financial (PayPal, Amazon, etc.)
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: Describe the new persistence mechanism
+      description: What is the attacker doing? (e.g., hiding rules in a new menu, linking a new type of OAuth app).
+    validations:
+      required: true
