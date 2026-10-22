@@ -7,6 +7,12 @@ Enterprise security teams have playbooks, centralized logging, and dedicated res
 
 **Project Virgil** is an open-source catalogue of Incident Response (IR) playbooks designed specifically for consumer platforms (Google, Meta, Apple, etc.). Built with the operational rigor of enterprise Digital Forensics and Incident Response (DFIR), these guides are engineered to help individuals and their designated "family IT support" rapidly triage, contain, and recover from Account Takeovers (ATO).
 
+## Why "Project Virgil"?
+
+In Dante's *Inferno*, the Roman poet Virgil acts as a steady, experienced guide, leading Dante safely through the chaotic and terrifying depths of Hell. 
+
+When a non-technical user experiences a catastrophic account takeover—watching their digital identity be weaponized to scam their friends, or seeing unauthorized financial transfers—it is a modern, deeply isolating kind of hell. Project Virgil exists to be that guide. We provide the "designated helpers" of the world with the clear, operational pathways needed to navigate victims out of the panic and back to safety.
+
 ## The Problem
 
 When a personal account is compromised, changing the password is rarely enough. Modern adversaries establish persistence via hidden OAuth grants, mailbox forwarding rules, and connected SSO applications. Existing consumer guides fail to address this, and vendor documentation frequently breaks as UIs change.
